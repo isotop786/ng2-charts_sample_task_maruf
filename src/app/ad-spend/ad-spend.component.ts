@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
+import { Chart } from 'chart.js';
+import { DataService } from 'src/app/data.service';
+
 
 @Component({
   selector: 'app-ad-spend',
@@ -7,83 +10,43 @@ import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
   styleUrls: ['./ad-spend.component.css']
 })
 export class AdSpendComponent implements OnInit {
+  date:any []
+  adSpends:any = []
+  result:any
+  line :any
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+    this.dataService.fetchData()
+    .subscribe(res=>{
+      this.result = res
+
+      // loading data
+      this.adSpends = this.result.map((r:any)=> Math.round(r.adSpend))
+      this.date = this.result.map((r:any) => r.date)
+
+      // rendering chart
+      this.line = new Chart('line',{
+        type:'line',
+        data:{
+          labels:this.date,
+          datasets:[
+            {
+              label:'AdSpend',
+              data:this.adSpends,
+              borderWidth:1,
+              backgroundColor:'rgba(34,183,84,0.2)',
+              borderColor:'#3e95cd',
+
+          }
+          ]
+        }
+      })
+
+
+    })
   }
-
-  public bubbleChartOptions: ChartConfiguration['options'] = {
-    scales: {
-      x: {
-        min: 0,
-        max: 30,
-        ticks: {}
-      },
-      y: {
-        min: 0,
-        max: 30,
-        ticks: {}
-      },
-    }
-  };
-
-  public bubbleChartType: ChartType = 'bubble';
-  public bubbleChartLegend = true;
-
-  public bubbleChartData: ChartData<'bubble'> = {
-    labels: [],
-    datasets: [ {
-      data: [
-        { x: 10, y: 10, r: 10 },
-        { x: 15, y: 5, r: 15 },
-        { x: 26, y: 12, r: 23 },
-        { x: 7, y: 8, r: 8 },
-      ],
-      label: 'AdSpends',
-      backgroundColor: [
-        'red',
-        'green',
-        'blue',
-        'purple',
-        'yellow',
-        'brown',
-        'magenta',
-        'cyan',
-        'orange',
-        'pink'
-      ],
-      borderColor: 'blue',
-      hoverBackgroundColor: 'purple',
-      hoverBorderColor: 'red',
-    } ]
-  };
-
-   // events
-   public chartClicked({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
-  }
-
-  public chartHovered({ event, active }: { event: MouseEvent, active: {}[] }): void {
-    console.log(event, active);
-  }
-
-  private rand(max: number): number {
-    return Math.trunc(Math.random() * max);
-  }
-
-  private randomPoint(maxCoordinate: number): { r: number; x: number; y: number } {
-    const x = this.rand(maxCoordinate);
-    const y = this.rand(maxCoordinate);
-    const r = this.rand(30) + 5;
-    return { x, y, r };
-  }
-
-  public randomize(): void {
-    const numberOfPoints = this.rand(5) + 5;
-    this.bubbleChartData.datasets[0].data = new Array(numberOfPoints).map(r => this.randomPoint(30));
-  }
-
 
 
 

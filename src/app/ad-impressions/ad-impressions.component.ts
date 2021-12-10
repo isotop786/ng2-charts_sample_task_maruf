@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartEvent, ChartOptions, ChartType } from 'chart.js';
-import { BaseChartDirective } from 'ng2-charts';
+import { Chart } from 'chart.js';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-ad-impressions',
@@ -9,38 +9,43 @@ import { BaseChartDirective } from 'ng2-charts';
 })
 export class AdImpressionsComponent implements OnInit {
 
-  constructor() { }
+  date:any []
+  adimpression:any = []
+  result:any
+  barChart :any
+
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+
+    this.dataService.fetchData()
+    .subscribe(res=>{
+      this.result =  res
+
+      // loading data
+      this.adimpression = this.result.map((r:any)=> parseInt(r.adImpressions))
+      this.date = this.result.map((r:any) => Date.parse(r.date))
+
+      // rendering chart
+      this.barChart = new Chart('barChart',{
+        type:'bar',
+        data:{
+          labels:this.date,
+          datasets:[
+            {
+              label:'AdImpressions',
+              data:this.adimpression,
+              borderWidth:10,
+              backgroundColor:'rgba(134,83,154,0.2)',
+              borderColor:'#3e95cd',
+
+          }
+          ]
+        }
+      })
+
+    })
+
   }
-
-  public barChartOptions: ChartConfiguration['options'] = {
-    elements: {
-      line: {
-        tension: 0.4
-      }
-    },
-    // We use these empty structures as placeholders for dynamic theming.
-    scales: {
-      x: {},
-      y: {
-        min: 10
-      }
-    },
-    plugins: {
-      legend: { display: true },
-    }
-  };
-
-  public barChartLabels: string[] = [ '2006', '2007', '2008', '2009', '2010', '2011', '2012' ];
-  public barChartType: ChartType = 'bar';
-
-  public barChartData: ChartData<'bar'> = {
-    labels: this.barChartLabels,
-    datasets: [
-
-      { data: [ 28, 48, 40, 19, 86, 27, 90 ], label: 'AdImpressions' }
-    ]
-  };
 
 }

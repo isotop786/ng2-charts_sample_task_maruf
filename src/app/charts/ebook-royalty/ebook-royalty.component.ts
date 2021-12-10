@@ -27,7 +27,7 @@ export class EbookRoyaltyComponent implements OnInit {
       this.result = res;
 
      this.ebook = this.result.map((r:any)=> parseInt(r.ebookRoyalty) )
-     this.date = this.result.map((r:any) => Date.parse(r.date))
+     this.date = this.result.map((r:any) => r.date)
      this.paperback = this.result.map((r:any)=> parseInt(r.paperbackRoyalty))
       console.log(this.ebook)
       // console.log(this.date)

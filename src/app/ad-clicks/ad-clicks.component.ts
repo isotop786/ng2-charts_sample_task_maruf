@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { Chart } from 'chart.js';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-ad-clicks',
@@ -8,10 +10,43 @@ import { BaseChartDirective } from 'ng2-charts';
   styleUrls: ['./ad-clicks.component.css']
 })
 export class AdClicksComponent implements OnInit {
+  date:any []
+  adClick:any = []
+  result:any
+  line :any
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
+
+    this.dataService.fetchData()
+    .subscribe(res=>{
+      this.result = res
+
+      // loading data
+      this.adClick = this.result.map((r:any)=> Math.round(r.adClick))
+      this.date = this.result.map((r:any) => r.date)
+
+      // rendering chart
+      this.line = new Chart('line',{
+        type:'line',
+        data:{
+          labels:this.date,
+          datasets:[
+            {
+              label:'AdClick',
+              data:this.adClick,
+              borderWidth:1,
+              backgroundColor:'rgba(64,83,84,0.6)',
+              borderColor:'#3e95cd',
+
+          }
+          ]
+        }
+      })
+
+
+    })
   }
 
   public lineChartData: ChartConfiguration['data'] = {
