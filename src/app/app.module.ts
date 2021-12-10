@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { PaperbackRoyaltyComponent } from './charts/paperback-royalty/paperback-
 import { AdSpendComponent } from './ad-spend/ad-spend.component';
 import { AdImpressionsComponent } from './ad-impressions/ad-impressions.component';
 import { AdClicksComponent } from './ad-clicks/ad-clicks.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { AdClicksComponent } from './ad-clicks/ad-clicks.component';
     PaperbackRoyaltyComponent,
     AdSpendComponent,
     AdImpressionsComponent,
-    AdClicksComponent
+    AdClicksComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
