@@ -24,7 +24,7 @@ export class PaperbackRoyaltyComponent implements OnInit {
 
       // loading data
       this.paperback = this.result.map((r:any)=> parseInt(r.paperbackRoyalty))
-      this.date = this.result.map((r:any) => Date.parse(r.date))
+      this.date = this.result.map((r:any) => r.date.toString().split('T')[0])
 
       // rendering chart
       this.barChart = new Chart('barChart',{

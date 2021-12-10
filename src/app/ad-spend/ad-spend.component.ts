@@ -24,7 +24,7 @@ export class AdSpendComponent implements OnInit {
 
       // loading data
       this.adSpends = this.result.map((r:any)=> Math.round(r.adSpend))
-      this.date = this.result.map((r:any) => r.date)
+      this.date = this.result.map((r:any) =>  r.date.toString().split('T')[0])
 
       // rendering chart
       this.line = new Chart('line',{

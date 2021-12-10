@@ -25,7 +25,7 @@ export class AdClicksComponent implements OnInit {
 
       // loading data
       this.adClick = this.result.map((r:any)=> Math.round(r.adClick))
-      this.date = this.result.map((r:any) => r.date)
+      this.date = this.result.map((r:any) => r.date.toString().split('T')[0])
 
       // rendering chart
       this.line = new Chart('line',{
