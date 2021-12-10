@@ -40,7 +40,7 @@ export class AdSpendComponent implements OnInit {
         { x: 26, y: 12, r: 23 },
         { x: 7, y: 8, r: 8 },
       ],
-      label: 'Series A',
+      label: 'AdSpends',
       backgroundColor: [
         'red',
         'green',

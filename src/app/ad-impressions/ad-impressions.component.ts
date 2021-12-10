@@ -38,8 +38,8 @@ export class AdImpressionsComponent implements OnInit {
   public barChartData: ChartData<'bar'> = {
     labels: this.barChartLabels,
     datasets: [
-      { data: [ 65, 59, 80, 81, 56, 55, 40 ], label: 'Series A' },
-      { data: [ 28, 48, 40, 19, 86, 27, 90 ], label: 'Series B' }
+
+      { data: [ 28, 48, 40, 19, 86, 27, 90 ], label: 'AdImpressions' }
     ]
   };
 

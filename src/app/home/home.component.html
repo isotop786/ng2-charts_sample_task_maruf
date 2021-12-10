@@ -1,6 +1,14 @@
-<div>
-  <div>
-    <div class="chart ">
+<div class="row">
+  <div class="col text-center ">
+    <h1 class="display-4 my-3">Welcome to Charts App.</h1>
+  </div>
+</div>
+<!-- hero end -->
+
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-6" >
+    <div class="chart" style="width: 500px!important;">
       <canvas class="mt-4" baseChart
               [data]="pieChartData"
               [type]="pieChartType"
@@ -9,4 +17,5 @@
       </canvas>
     </div>
   </div>
+  <div class="col-md-2"></div>
 </div>

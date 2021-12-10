@@ -18,7 +18,7 @@ export class EbookRoyaltyComponent implements OnInit {
   public lineChartData: ChartConfiguration['data'] = {
     datasets: [
       {data:[65, 59, 80, 81, 56, 55, 40 ],
-        label: 'Series A',
+        label: 'EbookRoyalty',
         backgroundColor: 'rgba(60, 179, 113,0.4)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
@@ -27,26 +27,26 @@ export class EbookRoyaltyComponent implements OnInit {
         pointHoverBorderColor: 'rgba(148,159,177,0.8)',
         fill: 'origin'
       },
-      {data:[55, 79, 83, 51, 76, 55, 40 ],
-        label: 'Series C',
-        backgroundColor: 'rgba(138,129,17,0.2)',
-        borderColor: 'rgba(148,159,177,1)',
-        pointBackgroundColor: 'rgba(148,159,177,1)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgba(148,159,177,0.8)',
-        fill: 'origin'
-      },
-      {data:[65, 59, 80, 81, 56, 55, 40 ],
-        label: 'Series B',
-        backgroundColor: 'rgba(255,99,71,0.4)',
-        borderColor: 'rgba(148,159,177,1)',
-        pointBackgroundColor: 'rgba(148,159,177,1)',
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: 'rgba(148,159,177,0.8)',
-        fill: 'origin'
-      },
+      // {data:[55, 79, 83, 51, 76, 55, 40 ],
+      //   label: 'Series C',
+      //   backgroundColor: 'rgba(138,129,17,0.2)',
+      //   borderColor: 'rgba(148,159,177,1)',
+      //   pointBackgroundColor: 'rgba(148,159,177,1)',
+      //   pointBorderColor: '#fff',
+      //   pointHoverBackgroundColor: '#fff',
+      //   pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+      //   fill: 'origin'
+      // },
+      // {data:[65, 59, 80, 81, 56, 55, 40 ],
+      //   label: 'Series B',
+      //   backgroundColor: 'rgba(255,99,71,0.4)',
+      //   borderColor: 'rgba(148,159,177,1)',
+      //   pointBackgroundColor: 'rgba(148,159,177,1)',
+      //   pointBorderColor: '#fff',
+      //   pointHoverBackgroundColor: '#fff',
+      //   pointHoverBorderColor: 'rgba(148,159,177,0.8)',
+      //   fill: 'origin'
+      // },
 
     ],
     labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July' ]
