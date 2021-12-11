@@ -29,8 +29,7 @@ export class EbookRoyaltyComponent implements OnInit {
      this.ebook = this.result.map((r:any)=> parseInt(r.ebookRoyalty) )
      this.date = this.result.map((r:any) => r.date.toString().split('T')[0])
      this.paperback = this.result.map((r:any)=> parseInt(r.paperbackRoyalty))
-      console.log(this.ebook)
-      // console.log(this.date)
+
       this.lineChart = new Chart('lineChart',{
         type:'line',
         data:{
@@ -40,7 +39,7 @@ export class EbookRoyaltyComponent implements OnInit {
             {
               label:'EbookRoyalty',
               data:this.ebook,
-              borderWidth:3,
+              borderWidth:1,
               fill:false,
               backgroundColor:'rgba(34,183,84,0.2)',
               borderColor:'#3e95cd'
@@ -51,7 +50,7 @@ export class EbookRoyaltyComponent implements OnInit {
             {
               label:'PaperBackRoyalty',
               data:this.paperback,
-              borderWidth:3,
+              borderWidth:1,
               fill:true,
               backgroundColor:'rgba(134,83,84,0.2)',
               borderColor:'#3e95cd'

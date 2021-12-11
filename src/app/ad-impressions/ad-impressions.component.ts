@@ -35,7 +35,7 @@ export class AdImpressionsComponent implements OnInit {
             {
               label:'AdImpressions',
               data:this.adimpression,
-              borderWidth:10,
+              borderWidth:0.7,
               backgroundColor:'rgba(134,83,154,0.2)',
               borderColor:'#3e95cd',
 

@@ -9,6 +9,7 @@ import { AdSpendComponent } from './ad-spend/ad-spend.component';
 import { AdImpressionsComponent } from './ad-impressions/ad-impressions.component';
 import { AdClicksComponent } from './ad-clicks/ad-clicks.component';
 import { HomeComponent } from './home/home.component';
+import { OverallComponent } from './charts/overall/overall.component';
 
 const routes: Routes = [
   {path:'ebook', component:EbookRoyaltyComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path:'adspend', component:AdSpendComponent},
   {path:'adimpression', component:AdImpressionsComponent},
   {path:'adclick', component:AdClicksComponent},
-  {path:'',component:HomeComponent}
+  {path:'',component:HomeComponent},
+  {path:'overall',component:OverallComponent}
 ];
 
 @NgModule({

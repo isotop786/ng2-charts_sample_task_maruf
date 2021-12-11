@@ -13,6 +13,7 @@ import { AdSpendComponent } from './ad-spend/ad-spend.component';
 import { AdImpressionsComponent } from './ad-impressions/ad-impressions.component';
 import { AdClicksComponent } from './ad-clicks/ad-clicks.component';
 import { HomeComponent } from './home/home.component';
+import { OverallComponent } from './charts/overall/overall.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HomeComponent } from './home/home.component';
     AdSpendComponent,
     AdImpressionsComponent,
     AdClicksComponent,
-    HomeComponent
+    HomeComponent,
+    OverallComponent
   ],
   imports: [
     BrowserModule,
